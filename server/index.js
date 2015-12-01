@@ -20,7 +20,7 @@ routes(server, restify)
 
 // Launching Server
 http.createServer(server).listen(LOCALS.port, function(){
-    console.log('Server listening on port:',LOCALS.port)
+    console.log('Server listening on port:', LOCALS.port)
 })
 
 export default server
