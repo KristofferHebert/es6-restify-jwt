@@ -2,8 +2,7 @@
 import request from 'supertest'
 import LOCALS from '../server/config/locals'
 
-console.log('http://localhost:' + LOCALS.port)
-let server =  request('http://localhost:' + LOCALS.port)
+let server = request('http://localhost:' + (LOCALS.port - 1))
 
 describe('Testing Auth with API', function(){
 	it('responds to unauthorized /api/v1/user request', function(done){

@@ -1,3 +1,6 @@
-'use strict'
+'use strict';
 
-import server from './server'
+// Setup for es6
+
+require("babel-core/register");
+require('./server');
