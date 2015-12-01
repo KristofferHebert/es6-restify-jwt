@@ -1,3 +1,4 @@
 node_modules
 .DS_stores
 locals.js
+npm-debug.log
