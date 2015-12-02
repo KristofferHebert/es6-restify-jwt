@@ -1,6 +1,9 @@
 'use strict'
-
+// Import dependencies
 import express from 'express'
+
+// Import Middleware
+import canEdit from './middleware/canEdit'
 
 // Import Models
 import User from './model/user'
