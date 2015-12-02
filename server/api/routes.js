@@ -10,6 +10,10 @@ import User from './model/user'
 
 let router = express.Router()
 
+// Prevent non owners from accessing
+
+router.use(canEdit)
+
 function routes(server, restify){
 
     restify.serve(router, User)

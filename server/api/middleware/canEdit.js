@@ -2,10 +2,10 @@
 // import LOCALS from '/../../config/locals'
 
 function canEdit(req, res, next){
-    if(!req.user.admin) {
-        return res.json('error', { error: err })
+    if(req.user && req.user.hasOwnProperty('admin')) {
+        next()
     }
-    next()
+    return res.json('error', { error: 'User must be admin or owner of resource' })
 }
 
 export default canEdit

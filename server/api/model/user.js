@@ -16,6 +16,7 @@ let UserSchema = new Schema({
     },
     password: {
         type: String,
+        minlength: 5,
         required: true
     }
 })
@@ -41,6 +42,13 @@ UserSchema.pre('save', function(next){
         })
     })
 })
+
+UserSchema.methods.comparePassword = function(candidatePassword, next) {
+    bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
+        if (err) return next(err);
+        next(null, isMatch);
+    });
+};
 
 let User = db.model("User", UserSchema)
 

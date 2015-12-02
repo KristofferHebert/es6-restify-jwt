@@ -7,6 +7,7 @@ import bodyParser from 'body-parser'
 import methodOverride from 'method-override'
 import restify from 'express-restify-mongoose'
 import routes from './api/routes'
+import cors from './api/middleware/cors'
 
 // Configuring Server
 import LOCALS from './config/locals'
@@ -15,11 +16,7 @@ server.use(bodyParser.json())
 server.use(methodOverride('X-HTTP-Method-Override'))
 
 // CORS
-server.use(function crossOrigin(req,res,next){
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    return next();
-})
+server.use(cors)
 
 // Configuring Routes
 routes(server, restify)
